@@ -1,0 +1,43 @@
+
+# Simple Banking System in Python
+
+This Python program simulates a basic banking system where users can create accounts, log in, and perform various banking operations such as depositing money, withdrawing money, checking balances, and changing passwords.
+
+## Instructions:
+
+### Running the Program:
+
+1. Ensure you have Python installed on your system.
+2. Run the Python script using your preferred Python interpreter.
+
+### Functionalities:
+
+1. **Create a New Account:**
+   - Allows users to create a new account by providing a name, account number, password, and initial balance.
+
+2. **Login:**
+   - Users can log in by entering their account number and password.
+
+3. **Deposit Money:**
+   - Enables users to deposit money into their accounts.
+
+4. **Withdraw Money:**
+   - Allows users to withdraw money from their accounts.
+
+5. **Balance Enquiry:**
+   - Users can check their account balances.
+
+6. **Change Password:**
+   - Provides an option for users to change their account password.
+
+### Usage Notes:
+
+- The program uses a list named `accounts` to store account information in a dictionary format.
+- Each account is represented as a dictionary containing keys for `name`, `account_no`, `password`, and `balance`.
+- It handles various user inputs and provides appropriate error messages for invalid inputs.
+- The program provides a simple command-line interface for user interaction.
+
+### Disclaimer:
+
+- This code is a simplified banking system for learning purposes and is not intended for real-world banking applications.
+- This system lacks real security measures and should not be used in actual banking scenarios.

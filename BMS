@@ -1,0 +1,88 @@
+accounts = []
+
+def login(accounts):
+    account_no = int(input("\nEnter your account number: "))
+    password = input("\nEnter your password: ")
+    for acc in accounts:
+        if acc["account_no"] == account_no and acc["password"] == password:
+            return acc
+    print("\nWrong account number or password. Try again.")
+    return None
+
+def create_new_account(accounts):
+    account = {}
+    account["name"] = input("\nEnter your name: ")
+    account["account_no"] = int(input("\nEnter your account number: "))
+    account["password"] = input("\nEnter your password: ")
+    account["balance"] = int(input("\nEnter your initial balance: "))
+    accounts.append(account)
+    return account
+
+def deposit(account):
+    amount = float(input("\nEnter amount to deposit: "))
+    account["balance"] += amount
+    print("\nDeposit Successful")
+
+def withdraw(account):
+    amount = float(input("\nEnter amount to withdraw: "))
+    if amount > account["balance"]:
+        print("\nInsufficient Balance")
+    else:
+        account["balance"] -= amount
+        print("\nWithdrawal Successful")
+
+def balance_enquiry(account):
+    print("\nYour current balance is: ", account["balance"])
+
+def change_password(account):
+    password = input("\nEnter your new password: ")
+    account["password"] = password
+    print("\nPassword Changed Successfully")
+
+def user_transactions(account):
+    while True:
+        print("\n\n___MAIN MENU___")
+        print("1. Deposit Amount")
+        print("2. Withdraw Amount")
+        print("3. Balance Enquiry")
+        print("4. Change Password")
+        print("5. Exit\n")
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            deposit(account)
+        elif choice == '2':
+            withdraw(account)
+        elif choice == '3':
+            balance_enquiry(account)
+        elif choice == '4':
+            change_password(account)
+        elif choice == '5':
+            print("\n\nThank You!")
+            break
+        else:
+            print("\n\n___INVALID INPUT!___")
+
+def main():
+    while True:
+        print("\n\n___LOGIN MENU___")
+        print("1. Create a new account")
+        print("2. Login")
+        print("3. Exit\n")
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            account = create_new_account(accounts)
+            user_transactions(account)
+        elif choice == '2':
+            acc = login(accounts)
+            if acc is not None:
+                user_transactions(acc)
+        elif choice == '3':
+            print("\n\nThank You!")
+            break
+        else:
+            print("\n\n___INVALID INPUT!___")
+
+if __name__ == "__main__":
+    main()
